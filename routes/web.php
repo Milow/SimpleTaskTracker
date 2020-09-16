@@ -36,7 +36,9 @@ Route::group(['middleware' => ['web']], function() {
 
 	Route::get('/tasks', 'App\Http\Controllers\TaskController@index');
 	Route::post('/tasks', 'App\Http\Controllers\TaskController@store');
-	Route::delete('/task/{task}', 'App\Http\Controllers\TaskController@destroy');
+	Route::delete('/task/delete/{task}', 'App\Http\Controllers\TaskController@destroy');
+	Route::get('/task/edit/{task}', 'App\Http\Controllers\TaskController@edit');
+	Route::patch('/task/edit/{task}', 'App\Http\Controllers\TaskController@update');
 });
 
 Auth::routes();

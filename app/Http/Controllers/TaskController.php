@@ -66,6 +66,26 @@ class TaskController extends Controller
     }
 
     /**
+     * Update an existing task.
+     *
+     * @param Task $task
+     *
+     * @return Response
+     */
+    public function update(Task $task)
+    {
+        $this->authorize('updateOrDestroy', $task);
+
+        $task->update(request()->validate([
+            'title' => 'required|max:128',
+            'priority' => 'required|integer',
+            'notes' => '',
+        ]));
+
+        return redirect('/tasks');
+    }
+
+    /**
      * Delete the specified task.
      *
      * @param Request $request
@@ -75,10 +95,22 @@ class TaskController extends Controller
      */
     public function destroy(Request $request, Task $task)
     {
-        $this->authorize('destroy', $task);
+        $this->authorize('updateOrDestroy', $task);
 
         $task->delete();
 
         return redirect('/tasks');
+    }
+
+    /**
+     * Edit the task.
+     *
+     * @param Task $task
+     *
+     * return Response
+     */
+    public function edit(Task $task)
+    {
+        return view('tasks.edit', compact('task'));
     }
 }

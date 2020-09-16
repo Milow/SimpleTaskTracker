@@ -55,8 +55,13 @@
 								<td class="table-text">
 									<div>{{ $task->priority }}</div>
 								</td>
-								<td>
-									<form action="{{ url('/task/' . $task->id) }}" method="POST">
+								<td class="form-inline">
+									<form action="{{ url('/task/edit/' . $task->id) }}" method="POST" class="mr-2">
+										{{ csrf_field() }}
+										{{ method_field('GET')}}
+										<button class="btn btn-primary">Update Task</button>
+									</form>
+									<form action="{{ url('/task/delete/' . $task->id) }}" method="POST">
 										{{ csrf_field() }}
 										{{ method_field('DELETE')}}
 										<button class="btn btn-danger">Delete Task</button>
