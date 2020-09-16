@@ -51,6 +51,9 @@
 							<tr>
 								<td class="table-text">
 									<div>{{ $task->title }}</div>
+									@if ($task->notes)
+										{{ $task->notes }}
+									@endif
 								</td>
 								<td class="table-text">
 									<div>{{ $task->priority }}</div>
