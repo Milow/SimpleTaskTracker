@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class="card">
+	<div class="card col-md-10 mx-auto">
 	<div class="card-body">
 		@include('common.errors')
 
@@ -44,7 +44,7 @@
 					<thead>
 						<th>Task</th>
 						<th>Priority</th>
-						<th>&nbsp;</th>
+						<th>Actions</th>
 					</thead>
 					<tbody>
 						@foreach ($tasks as $task)
