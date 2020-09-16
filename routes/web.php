@@ -13,22 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/*Route::get('/', 'App\Http\Controllers\AuthController@home');
-
-// Authentication
-Route::get('auth/login', 'App\Http\Controllers\AuthController@getLogin');
-Route::post('auth/login', 'App\Http\Controllers\AuthController@postLogin');
-Route::get('auth/logout', 'App\Http\Controllers\AuthController@getLogout');
-
-// Registration
-Route::get('auth/register', 'App\Http\Controllers\AuthController@getRegister');
-Route::post('auth/register', 'App\Http\Controllers\AuthController@postRegister');
-
-// Tasks
-Route::get('/tasks', 'App\Http\Controllers\TaskController@index');
-Route::post('/tasks', 'App\Http\Controllers\TaskController@store');
-Route::delete('/task/{task}', 'App\Http\Controllers\TaskController@destroy');*/
-
 Route::group(['middleware' => ['web']], function() {
 	Route::get('/', function () {
 		return view('welcome');
