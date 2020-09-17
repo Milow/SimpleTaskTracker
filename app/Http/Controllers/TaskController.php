@@ -86,6 +86,23 @@ class TaskController extends Controller
     }
 
     /**
+     * Toggle status.
+     *
+     * @param Task $task
+     *
+     * @return Response
+     */
+    public function updateStatus(Task $task)
+    {
+        $this->authorize('updateOrDestroy', $task);
+
+        $task->status = !$task->status;
+        $task->save();
+
+        return redirect('/tasks');
+    }
+
+    /**
      * Delete the specified task.
      *
      * @param Request $request

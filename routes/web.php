@@ -23,6 +23,7 @@ Route::group(['middleware' => ['web']], function() {
 	Route::delete('/task/delete/{task}', 'App\Http\Controllers\TaskController@destroy');
 	Route::get('/task/edit/{task}', 'App\Http\Controllers\TaskController@edit');
 	Route::patch('/task/edit/{task}', 'App\Http\Controllers\TaskController@update');
+	Route::put('/task/status/{task}', 'App\Http\Controllers\TaskController@updateStatus');
 });
 
 Auth::routes();

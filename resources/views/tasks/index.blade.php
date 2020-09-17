@@ -44,6 +44,7 @@
 					<thead>
 						<th>Task</th>
 						<th>Priority</th>
+						<th>Status</th>
 						<th>Actions</th>
 					</thead>
 					<tbody>
@@ -57,6 +58,17 @@
 								</td>
 								<td class="table-text">
 									<div>{{ $task->priority }}</div>
+								</td>
+								<td class="table-text">
+									<form action="{{ url('/task/status/' . $task->id) }}" method="POST" class="mr-2">
+										{{ csrf_field() }}
+										{{ method_field('PUT') }}
+										@if ($task->status)
+										<button class="btn btn-success">Completed</button>
+										@else
+										<button class="btn btn-info">Pending</button>
+										@endif
+									</form>
 								</td>
 								<td class="form-inline">
 									<form action="{{ url('/task/edit/' . $task->id) }}" method="POST" class="mr-2">
