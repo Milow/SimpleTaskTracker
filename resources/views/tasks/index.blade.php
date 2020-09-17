@@ -52,7 +52,7 @@
 								<td class="table-text">
 									<div>{{ $task->title }}</div>
 									@if ($task->notes)
-										{{ $task->notes }}
+										<div class="pl-3">{{ $task->notes }}</div>
 									@endif
 								</td>
 								<td class="table-text">
