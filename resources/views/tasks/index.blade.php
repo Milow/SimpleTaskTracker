@@ -42,7 +42,7 @@
 			<div class="card-body">
 				<table class="table table-striped task-table">
 					<thead>
-						<th>Task</th>
+						<th class="col-md-5">Task</th>
 						<th>Priority</th>
 						<th>Status</th>
 						<th>Actions</th>
@@ -73,12 +73,12 @@
 								<td class="form-inline">
 									<form action="{{ url('/task/edit/' . $task->id) }}" method="POST" class="mr-2">
 										{{ csrf_field() }}
-										{{ method_field('GET')}}
+										{{ method_field('GET') }}
 										<button class="btn btn-primary">Update Task</button>
 									</form>
 									<form action="{{ url('/task/delete/' . $task->id) }}" method="POST">
 										{{ csrf_field() }}
-										{{ method_field('DELETE')}}
+										{{ method_field('DELETE') }}
 										<button class="btn btn-danger">Delete Task</button>
 									</form>
 								</td>
